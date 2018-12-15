@@ -6,6 +6,9 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
+
+
+@CrossOrigin(origins = ["http://localhost:4200"], maxAge = 3600)
 @RestController
 @RequestMapping("/api")
 class ArticleController(private val articleRepository: ArticleRepository) {
@@ -24,7 +27,7 @@ class ArticleController(private val articleRepository: ArticleRepository) {
     fun createNewArticle(@Valid @RequestBody article: Article): Article =
             articleRepository.save(article)
 
-    @GetMapping("/articles/update/{id}")
+    @PutMapping("/articles/update/{id}")
     fun updateArticleById(@PathVariable(value = "id") articleId: Long,
                           @Valid @RequestBody newArticle: Article): ResponseEntity<Article> {
 
