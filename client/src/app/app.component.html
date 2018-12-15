@@ -1,13 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
+<div class="well">
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <ul>
-    <li *ngFor="let article of articles">
-      <p><b>{{ article.title }}</b> says: <i>{{ article.content }}</i></p>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let article of articles">
+      <b>{{ article.title }}</b> says: <i>{{ article.content }}</i>
     </li>
   </ul>
-  <button (click)="getArticles(url)">Get new shite from da DB</button>
+  <button class="btn btn-success" (click)="getArticles(url)">Get new shite from da DB</button>
+  <app-article-form></app-article-form>
 </div>
 
